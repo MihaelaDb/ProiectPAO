@@ -11,7 +11,7 @@ public class Client {
     private int clientID = 0;
 
     public Client() {
-        // Default constructor
+       
     }
 
     // Getters and setters
@@ -71,7 +71,7 @@ public class Client {
         this.Adresa = Adresa;
     }
 
-    // Method to display client information
+    
     public void afiseazaInformatii() {
         System.out.println("INFORMATIILE CONTULUI:");
         System.out.println("Nume: " + Nume);
@@ -82,7 +82,7 @@ public class Client {
         System.out.println("Adresa: " + Adresa);
     }
 
-    // Main method
+
     public static void main(String[] args) {
         Client client = new Client();
         client.afiseazaInformatii();
