@@ -14,7 +14,7 @@ public class Client {
        
     }
 
-    // Getters and setters
+
     public String getNume() {
         return Nume;
     }
