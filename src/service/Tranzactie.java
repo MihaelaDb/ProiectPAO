@@ -1,4 +1,4 @@
-package servicii;
+package service;
 
 import java.util.Scanner;
 
@@ -43,7 +43,7 @@ public class Tranzactie {
         }
     }
 
-    private void depune() {
+    public void depune() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introduceti suma pe care doriti sa o depuneti: ");
         double suma = scanner.nextDouble();
@@ -53,7 +53,7 @@ public class Tranzactie {
         System.out.println("Ati depus " + suma + " lei. Soldul tau curent este: " + sold + " lei.");
     }
 
-    private void retrage() {
+    public void retrage() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introduceti suma pe care doriti sa o retrageti: ");
         double suma = scanner.nextDouble();
@@ -62,12 +62,12 @@ public class Tranzactie {
             System.out.println("Nu aveti suficienti bani in cont. Soldul tau curent este: " + sold + " lei.");
         } else {
             sold -= suma;
-            contVizualizare.actualizeazaSold(sold); // Update the balance in VizualizareSold
+            contVizualizare.actualizeazaSold(sold);
             System.out.println("Ati retras " + suma + " lei. Soldul tau curent este: " + sold + " lei.");
         }
     }
 
-    private void transfera() {
+    public void transfera() {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introduceti suma pe care doriti sa o transferati: ");
         double suma = scanner.nextDouble();
@@ -76,7 +76,7 @@ public class Tranzactie {
             System.out.println("Nu aveti suficienti bani in cont pentru a efectua transferul.");
         } else {
             sold -= suma;
-            contVizualizare.actualizeazaSold(sold); // Update the balance in VizualizareSold
+            contVizualizare.actualizeazaSold(sold);
             System.out.println("Ati transferat " + suma + " lei. Soldul tau curent este: " + sold + " lei.");
         }
     }
