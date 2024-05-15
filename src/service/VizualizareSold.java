@@ -1,19 +1,20 @@
 package service;
 
+
 import model.ContBancar;
 
 public class VizualizareSold extends ContBancar {
 
-    public VizualizareSold(double Sold) {
-        super(Sold);
+    public VizualizareSold(double sold) {
+        super("", "", "", sold);
     }
 
-    public void afiseazaSold() {
-        System.out.println("Soldul dvs. este: " + VizualizareSold.sold);
+    public void afiseazaSold(VizualizareSold vizualizareSold) {
+        System.out.println("Soldul dvs. este: " + getSold());
     }
+
 
     public void actualizeazaSold(double suma) {
-
-        sold += suma;
+        setSold(getSold() + suma);
     }
 }

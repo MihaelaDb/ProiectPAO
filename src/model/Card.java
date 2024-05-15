@@ -1,13 +1,5 @@
 package model;
-
-import java.time.LocalDateTime;
 import java.util.Random;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-
 public class Card {
     private int cvv;
     private String numarCard;
@@ -47,27 +39,22 @@ public class Card {
 
     private String generateNumarCard() {
         StringBuilder sb = new StringBuilder();
-        Random random = new Random();
-        for (int i = 0; i < 16; i++) {
-            int digit = random.nextInt(10);
-            sb.append(digit);
+        for (int i = 0; i < 12; i++) {
+            if (i > 0 && i % 4 == 0) {
+                sb.append(" ");
+            }
+            sb.append((int) (Math.random() * 10));
         }
         return sb.toString();
     }
 
+
     private String generateDataExpirarii() {
-        Random random = new Random();
-        int month = random.nextInt(12) + 1;
-        int year = Calendar.getInstance().get(Calendar.YEAR) + random.nextInt(10);
-        DateFormat dateFormat = new SimpleDateFormat("MM/yyyy");
-        Date expirationDate = null;
-        try {
-            expirationDate = dateFormat.parse(String.format("%02d", month) + "/" + year);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return dateFormat.format(expirationDate);
+        int month = (int) (Math.random() * 12) + 1;
+        int year = 2030;
+        return String.format("%02d/%d", month, year);
     }
+
 
     private int generateCVV() {
         var rand = new Random();

@@ -1,90 +1,63 @@
-package client;
+package model;
 
 public class Client {
 
-    private String Nume ="Dobromirescu", Prenume="Mihaela", CNP;
-    private String Email = "dobromirecsu3@gmail.com";
-    private String Telefon;
-    private String DataNasterii = "15.09.2003";
-    private String Adresa = "Strada Clea Brailei, nr 6, Cerna, Tulcea";
+    private static String nume = "Dobromirescu", prenume = "Mihaela", CNP;
+    private static String email = "dobromirecsu3@gmail.com";
+    private static String telefon ="0744318808";
+    private static String dataNasterii = "15.09.2003";
+    private static String adresa = "Strada Clea Brailei, nr 6, Cerna, Tulcea";
 
-    private int clientID = 0;
+    private static int clientID = 0;
 
-    public Client() {
-       
+    public Client(String nume, String prenume, String CNP, String email, String telefon, String dataNasterii, String adresa, int clientID) {
+
     }
 
 
     public String getNume() {
-        return Nume;
+        return nume;
     }
 
-    public void setNume(String Nume) {
-        this.Nume = Nume;
-    }
 
     public String getPrenume() {
-        return Prenume;
+        return prenume;
     }
 
-    public void setPrenume(String Prenume) {
-        this.Prenume = Prenume;
-    }
 
     public String getCNP() {
         return CNP;
     }
 
-    public void setCNP(String CNP) {
-        this.CNP = CNP;
-    }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
-    }
 
     public String getTelefon() {
-        return Telefon;
+        return telefon;
     }
 
-    public void setTelefon(String Telefon) {
-        this.Telefon = Telefon;
-    }
 
     public String getDataNasterii() {
-        return DataNasterii;
+        return dataNasterii;
     }
 
-    public void setDataNasterii(String DataNasterii) {
-        this.DataNasterii = DataNasterii;
-    }
 
     public String getAdresa() {
-        return Adresa;
+        return adresa;
     }
 
-    public void setAdresa(String Adresa) {
-        this.Adresa = Adresa;
-    }
 
-    
-    public void afiseazaInformatii() {
+    public void afiseazaInformatiiClient(Client client1) {
         System.out.println("INFORMATIILE CONTULUI:");
-        System.out.println("Nume: " + Nume);
-        System.out.println("Prenume: " + Prenume);
-        System.out.println("Email: " + Email);
-        System.out.println("Telefon: " + Telefon);
-        System.out.println("Data Nasterii: " + DataNasterii);
-        System.out.println("Adresa: " + Adresa);
-    }
-
-
-    public static void main(String[] args) {
-        Client client = new Client();
-        client.afiseazaInformatii();
+        System.out.println("Nume: " + this.nume);
+        System.out.println("Prenume: " + this.prenume);
+        System.out.println("Email: " + this.email);
+        System.out.println("Telefon: " + this.telefon);
+        System.out.println("Data Nasterii: " + this.dataNasterii);
+        System.out.println("Adresa: " + this.adresa);
     }
 }
+

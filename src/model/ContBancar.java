@@ -1,30 +1,25 @@
 package model;
 
+import java.util.Scanner;
 
 public class ContBancar {
 
-    protected String IBAN;
-    protected String SWIFT;
-    protected static double sold;
-    protected String nume;
-    protected String prenume;
+    private String IBAN;
+    private String SWIFT;
+    private double sold=76;
+    private String nume;
+    private String prenume;
 
     private String nrcontbancar;
 
-
-    public ContBancar(String nume, String prenume) {
+    public ContBancar(String nume, String prenume, String nrcontbancar, double sold) {
         this.IBAN = this.getIBAN(nrcontbancar);
         this.SWIFT = this.generateSwift();
-        this.sold = sold;
-        this.nume = this.nume;
+        this.sold = this.sold; // This assignment is unnecessary because 'sold' is already initialized above
+        this.nume = nume;
         this.prenume = prenume;
         this.nrcontbancar = nrcontbancar;
     }
-
-    public ContBancar(double Sold) {
-        this.sold =sold;
-    }
-
 
     private String getIBAN(String nrcontbancar) {
         String banca = "BTRLRONCRT";
@@ -37,12 +32,15 @@ public class ContBancar {
         return "SWIFT" + banca + "22";
     }
 
+    public double getSold() {
+        return sold; // Moved the getSold() method inside the class body
+    }
+
     public String getNume() {
         return nume;
     }
 
     public String getPrenume() {
-
         return prenume;
     }
 
@@ -53,10 +51,22 @@ public class ContBancar {
     public String getSWIFT() {
         return SWIFT;
     }
-
-    public double getSold() {
-        return this.sold;
+    public void setSold(double sold) {
+        this.sold = sold;
     }
+
+    public void retrage(double suma) {
+        Scanner scanner = new Scanner(System.in);
+        suma = scanner.nextDouble();
+        scanner.nextLine();
+        if (suma > sold) {
+            System.out.println("Nu aveti suficienti bani in cont. Soldul tau curent este: " + sold + " lei.");
+        } else {
+            sold -= suma;
+
+        }
+    } public ContBancar(double sold) {
+        this.sold = sold;
+    }
+
 }
-
-
