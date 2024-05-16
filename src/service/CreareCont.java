@@ -1,28 +1,31 @@
 package service;
 
 import model.Card;
+import model.Client;
 
 public class CreareCont {
     private String nume1;
     private String prenume1;
     private String email1;
     private String nrtelefon1;
+    private Client client;
     private Card card;
+    private model.Client Client;
 
     public CreareCont(String nume, String prenume, String email, String nrtelefon) {
         this.nume1 = nume;
         this.prenume1 = prenume;
         this.email1 = email;
-        this.nrtelefon1 = nrtelefon1;
+        this.nrtelefon1 = nrtelefon;
+        this.client = new Client(nume, prenume, email, nrtelefon, "15.09.2003", "Strada Calea Brailei, nr 6", 1);
         this.card = generateCard();
     }
-
 
     public Card generateCard() {
         String numarCard = generateNumarCard();
         int cvv = generateCVV();
         String dataExpirarii = generateDataExpirarii();
-        return new Card(nume1, prenume1, numarCard, cvv, dataExpirarii);
+        return new Card(numarCard, cvv, dataExpirarii, client);
     }
 
     public void displayAccountDetails() {
@@ -30,9 +33,9 @@ public class CreareCont {
         System.out.println("Nume: " + this.nume1);
         System.out.println("Prenume: " + this.prenume1);
         System.out.println("Email: " + this.email1);
-        System.out.println("Numar de telefon: " + nrtelefon1);
+        System.out.println("Numar de telefon: " + this.nrtelefon1);
         System.out.println("Detalii card:");
-        System.out.println("Numar card: 4140 "+ card.getNumarCard());
+        System.out.println("Numar card: 4140 " + card.getNumarCard());
         System.out.println("CVV: " + card.getCVV());
         System.out.println("Data expirarii: " + card.getDataExpirarii());
     }
@@ -48,7 +51,6 @@ public class CreareCont {
         return sb.toString();
     }
 
-
     private String generateDataExpirarii() {
         int month = (int) (Math.random() * 12) + 1;
         int year = 2030;
@@ -57,5 +59,13 @@ public class CreareCont {
 
     private int generateCVV() {
         return (int) (Math.random() * 900) + 100;
+    }
+
+    public Card getCard() {
+        return this.card;
+    }
+
+    public Client getClient(){
+        return Client;
     }
 }

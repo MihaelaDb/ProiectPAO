@@ -13,7 +13,6 @@ public class VizualizareSold extends ContBancar {
         System.out.println("Soldul dvs. este: " + getSold());
     }
 
-
     public void actualizeazaSold(double suma) {
         setSold(getSold() + suma);
     }

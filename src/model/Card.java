@@ -3,17 +3,17 @@ import java.util.Random;
 public class Card {
     private int cvv;
     private String numarCard;
-    private String nume;
-    private String prenume;
+
     private String dataExpirarii;
 
+    private Client client;
 
-    public Card(String nume,String prenume, String numarCars, int cvv, String dataExpirarii ) {
-        this.nume = nume;
+
+    public Card( String numarCard, int cvv, String dataExpirarii, Client client ) {
         this.numarCard = this.generateNumarCard();
         this.cvv = this.generateCVV();
-        this.prenume=prenume;
         this.dataExpirarii = generateDataExpirarii();
+        this.client=client;
     }
 
 
@@ -25,17 +25,12 @@ public class Card {
         return numarCard;
     }
 
-    public String getNume() {
-        return nume;
-    }
+
 
     public String getDataExpirarii() {
         return dataExpirarii;
     }
 
-    public String getPrenume() {
-        return prenume;
-    }
 
     private String generateNumarCard() {
         StringBuilder sb = new StringBuilder();
@@ -59,6 +54,14 @@ public class Card {
     private int generateCVV() {
         var rand = new Random();
         return 100 + rand.nextInt(899);
+    }
+    public void afiseazaInformatiiCard() {
+        System.out.println("INFORMATIILE CARDULUI:");
+        System.out.println("Card Number: 4140 " + getNumarCard());
+        System.out.println("Expiration Date: " + getDataExpirarii());
+        System.out.println("CVV: " + getCVV());
+        System.out.println("Client Nume: " + client.getNume());
+        System.out.println("Client Prenume: " + client.getPrenume());
     }
 
 }

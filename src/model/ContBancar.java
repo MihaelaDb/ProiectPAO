@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Scanner;
-
 public class ContBancar {
 
     private String IBAN;
@@ -15,7 +13,7 @@ public class ContBancar {
     public ContBancar(String nume, String prenume, String nrcontbancar, double sold) {
         this.IBAN = this.getIBAN(nrcontbancar);
         this.SWIFT = this.generateSwift();
-        this.sold = this.sold; // This assignment is unnecessary because 'sold' is already initialized above
+        this.sold = sold; // This assignment is unnecessary because 'sold' is already initialized above
         this.nume = nume;
         this.prenume = prenume;
         this.nrcontbancar = nrcontbancar;
@@ -33,7 +31,7 @@ public class ContBancar {
     }
 
     public double getSold() {
-        return sold; // Moved the getSold() method inside the class body
+        return sold;
     }
 
     public String getNume() {
@@ -54,18 +52,7 @@ public class ContBancar {
     public void setSold(double sold) {
         this.sold = sold;
     }
-
-    public void retrage(double suma) {
-        Scanner scanner = new Scanner(System.in);
-        suma = scanner.nextDouble();
-        scanner.nextLine();
-        if (suma > sold) {
-            System.out.println("Nu aveti suficienti bani in cont. Soldul tau curent este: " + sold + " lei.");
-        } else {
-            sold -= suma;
-
-        }
-    } public ContBancar(double sold) {
+     public ContBancar(double sold) {
         this.sold = sold;
     }
 

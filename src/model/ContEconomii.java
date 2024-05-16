@@ -3,18 +3,19 @@ package model;
 import java.util.Date;
 
 
-public class ContEconomii extends ContBancar {
+public class ContEconomii {
     private  Date dataInceput = null , dataFinalizare = null;
     private  int dobanda = 0;
     private double suma;
 
-    public ContEconomii(String nume, String prenume, String nrcontbancar, double sold){
-        super(nume, prenume, nrcontbancar, sold);
+    private Client client;
 
+    public ContEconomii(Date dataInceput, Date dataFinalizare, int dobanda, double suma, Client client){
         this.dataInceput = dataInceput;
         this.dataFinalizare = dataFinalizare;
         this.dobanda = dobanda;
         this.suma=suma;
+        this.client=client;
 
     }
     public Date getDataInceput() {
@@ -30,6 +31,20 @@ public class ContEconomii extends ContBancar {
         return suma;
     }
 
+
+
+    public void afiseazaInformatiiContEconomii(){
+        System.out.println("INFORMATII CONT ECONOMII: ");
+        System.out.println("Nume: " + client.getNume());
+        System.out.println("Prenume: " + client.getPrenume());
+        System.out.println("Data Inceperii: " + getDataInceput());
+        System.out.println("Data Finalizare: " + getDataFinalizare());
+        System.out.println("Dobanda: " + getDobanda());
+        System.out.println("Suma: " + getSuma());
+
+
+
+    }
 
 
 }

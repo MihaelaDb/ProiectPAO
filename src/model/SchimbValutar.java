@@ -12,10 +12,6 @@ public class SchimbValutar {
         SchimbValutar.contBancar = contBancar;
     }
 
-    public void setRataRONtoEUR(double rataRONtoEUR) {
-        SchimbValutar.rataRONtoEUR = rataRONtoEUR;
-    }
-
     public static void convertesteRONtoEUR() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduceti suma pe care doriti sa o convertiti:");
