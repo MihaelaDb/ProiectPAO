@@ -2,51 +2,44 @@ package model;
 
 import java.util.Date;
 
-
 public class ContEconomii {
-    private  Date dataInceput = null , dataFinalizare = null;
-    private  int dobanda = 0;
+    private Date dataInceput;
+    private Date dataFinalizare;
+    private int dobanda;
     private double suma;
+    private String numeClient;
+    private String prenumeClient;
 
-    private Client client;
-
-    public ContEconomii(Date dataInceput, Date dataFinalizare, int dobanda, double suma, Client client){
+    public ContEconomii(Date dataInceput, Date dataFinalizare, int dobanda, double suma) {
         this.dataInceput = dataInceput;
         this.dataFinalizare = dataFinalizare;
         this.dobanda = dobanda;
-        this.suma=suma;
-        this.client=client;
-
+        this.suma = suma;
+        this.numeClient = numeClient;
+        this.prenumeClient = prenumeClient;
     }
+
     public Date getDataInceput() {
         return dataInceput;
     }
-    public Date getDataFinalizare(){
+
+    public Date getDataFinalizare() {
         return dataFinalizare;
     }
-    public int getDobanda(){
+
+    public int getDobanda() {
         return dobanda;
     }
+
     public double getSuma() {
         return suma;
     }
 
-
-
-    public void afiseazaInformatiiContEconomii(){
-        System.out.println("INFORMATII CONT ECONOMII: ");
-        System.out.println("Nume: " + client.getNume());
-        System.out.println("Prenume: " + client.getPrenume());
-        System.out.println("Data Inceperii: " + getDataInceput());
-        System.out.println("Data Finalizare: " + getDataFinalizare());
-        System.out.println("Dobanda: " + getDobanda());
-        System.out.println("Suma: " + getSuma());
-
-
-
+    public String getNumeClient() {
+        return numeClient;
     }
 
-
+    public String getPrenumeClient() {
+        return prenumeClient;
+    }
 }
-
-

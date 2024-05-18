@@ -1,35 +1,28 @@
 package model;
 
-import java.util.Scanner;
-
 public class SchimbValutar {
-    private static double rataRONtoEUR;
-    private static double sumaSchimbata;
-    private static ContBancar contBancar;
+    private int id;
+    private double suma;
+    private double sumaSchimbata;
 
-    public SchimbValutar(double rataRONtoEUR, ContBancar contBancar) {
-        SchimbValutar.rataRONtoEUR = rataRONtoEUR;
-        SchimbValutar.contBancar = contBancar;
+    public SchimbValutar(int id, double suma, String codValutar) {
+        this.id = id;
+        this.suma = suma;
     }
 
-    public static void convertesteRONtoEUR() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Introduceti suma pe care doriti sa o convertiti:");
-        double suma = scanner.nextDouble();
-        double sold = contBancar.getSold();
-
-        if (suma > sold) {
-            System.out.println("Nu aveti suficienti bani in cont. Introduceti alta suma: ");
-            double suma2 = scanner.nextDouble();
-            sumaSchimbata = suma2 /rataRONtoEUR;
-        } else {
-            sumaSchimbata = suma / rataRONtoEUR;
-            contBancar.setSold(sold - suma);
-            System.out.println("Suma schimbata: " + sumaSchimbata + " EUR");
-        }
+    public double getSuma() {
+        return suma;
     }
 
     public double getSumaSchimbata() {
         return sumaSchimbata;
+    }
+
+    public void setSumaSchimbata(double sumaSchimbata) {
+        this.sumaSchimbata = sumaSchimbata;
+    }
+
+    public int getId(){
+        return id;
     }
 }

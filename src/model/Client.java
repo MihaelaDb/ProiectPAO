@@ -1,33 +1,41 @@
 package model;
 
+
+import java.sql.Date;
+
 public class Client {
 
-    private static String nume = "Dobromirescu", prenume = "Mihaela", CNP;
-    private static String email = "dobromirecsu3@gmail.com";
-    private static String telefon ="0744318808";
-    private static String dataNasterii = "15.09.2003";
-    private static String adresa = "Strada Clea Brailei, nr 6, Cerna, Tulcea";
+    private  String nume;
+    private  String prenume;
 
-    private static int clientID = 0;
+    private String email;
+    private String telefon;
+    private Date data_nasterii;
+    private String adresa;
+    private final int id;
 
-    public Client(String nume, String prenume, String CNP, String email, String telefon, String dataNasterii, String adresa, int clientID) {
+    public Client(int id, String nume, String prenume, String email, String telefon, Date data_nasterii, String adresa) {
+
+        this.id=id;
+        this.nume=nume;
+        this.prenume=prenume;
+        this.email=email;
+        this.telefon=telefon;
+        this.data_nasterii=data_nasterii;
+        this.adresa=adresa;
 
     }
-
 
     public String getNume() {
         return nume;
     }
 
 
+
     public String getPrenume() {
         return prenume;
     }
 
-
-    public String getCNP() {
-        return CNP;
-    }
 
 
     public String getEmail() {
@@ -40,24 +48,22 @@ public class Client {
     }
 
 
-    public String getDataNasterii() {
-        return dataNasterii;
+    public Date getDataNasterii() {
+        return data_nasterii ;
     }
-
 
     public String getAdresa() {
         return adresa;
     }
 
-
-    public void afiseazaInformatiiClient(Client client1) {
-        System.out.println("INFORMATIILE CONTULUI:");
-        System.out.println("Nume: " + this.nume);
-        System.out.println("Prenume: " + this.prenume);
-        System.out.println("Email: " + this.email);
-        System.out.println("Telefon: " + this.telefon);
-        System.out.println("Data Nasterii: " + this.dataNasterii);
-        System.out.println("Adresa: " + this.adresa);
+    public int getId(){
+        return id;
     }
-}
 
+    public Client(int id, String nume, String prenume) {
+        this.id = id;
+        this.nume = nume;
+        this.prenume = prenume;
+    }
+
+}

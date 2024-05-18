@@ -1,59 +1,64 @@
 package model;
 
 public class ContBancar {
+    private int id;
+    private int clientId;
+    private String iban;
+    private String swift;
+    private double sold;
 
-    private String IBAN;
-    private String SWIFT;
-    private double sold=76;
-    private String nume;
-    private String prenume;
-
-    private String nrcontbancar;
-
-    public ContBancar(String nume, String prenume, String nrcontbancar, double sold) {
-        this.IBAN = this.getIBAN(nrcontbancar);
-        this.SWIFT = this.generateSwift();
-        this.sold = sold; // This assignment is unnecessary because 'sold' is already initialized above
-        this.nume = nume;
-        this.prenume = prenume;
-        this.nrcontbancar = nrcontbancar;
+    public ContBancar(int id, String iban, String swift, double sold) {
+        this.id = id;
+        this.iban = iban;
+        this.swift = swift;
+        this.sold = sold;
     }
 
-    private String getIBAN(String nrcontbancar) {
-        String banca = "BTRLRONCRT";
-        return "RO43" + banca + nrcontbancar;
+    public int getId() {
+        return id;
     }
 
-    private String generateSwift() {
-        String banca = "BTRL";
+    public void setId(int id) {
+        this.id = id;
+    }
 
-        return "SWIFT" + banca + "22";
+    public int getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(int clientId) {
+        this.clientId = clientId;
+    }
+
+    public String getIban() {
+        return iban;
+    }
+
+    public void setIban(String iban) {
+        this.iban = iban;
+    }
+
+    public String getSwift() {
+        return swift;
+    }
+
+    public void setSwift(String swift) {
+        this.swift = swift;
     }
 
     public double getSold() {
         return sold;
     }
 
-    public String getNume() {
-        return nume;
+
+
+    public String generateIBAN() {
+        String banca = "BT";
+        return "RO06" + banca + "B" + id;
     }
 
-    public String getPrenume() {
-        return prenume;
+    public String generateSwift() {
+        String banca = "BT";
+        return "SWIFT" + banca + "B" + id;
     }
-
-    public String getIBAN() {
-        return IBAN;
-    }
-
-    public String getSWIFT() {
-        return SWIFT;
-    }
-    public void setSold(double sold) {
-        this.sold = sold;
-    }
-     public ContBancar(double sold) {
-        this.sold = sold;
-    }
-
 }
