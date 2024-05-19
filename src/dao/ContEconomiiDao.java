@@ -18,9 +18,7 @@ public class ContEconomiiDao {
                 "data_inceput DATE NOT NULL," +
                 "data_finalizare DATE NOT NULL," +
                 "dobanda DOUBLE NOT NULL," +
-                "suma DOUBLE NOT NULL," +
-                "nume_client VARCHAR(255) NOT NULL," +
-                "prenume_client VARCHAR(255) NOT NULL" +
+                "suma DOUBLE NOT NULL" +
                 ");";
 
         try (Connection connection = DatabaseUtil.getInstance().getConnection();
@@ -32,6 +30,7 @@ public class ContEconomiiDao {
             System.out.println("Error creating table 'cont_economii'.");
         }
     }
+
 
     public int create(ContEconomii contEconomii) {
         String query = "INSERT INTO cont_economii (data_inceput, data_finalizare, dobanda, suma) VALUES (?, ?, ?, ?)";
