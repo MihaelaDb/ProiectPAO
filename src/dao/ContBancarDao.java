@@ -81,10 +81,10 @@ public class ContBancarDao {
         String sql = "UPDATE cont_bancar SET iban = ?, swift = ?, sold = ? WHERE id = ?";
         try (Connection connection = DatabaseUtil.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(sql)) {
-            statement.setString(1, contBancar.getIban());  // Set iban parameter
+            statement.setString(1, contBancar.getIban());
             statement.setString(2, contBancar.getSwift());
             statement.setDouble(3, contBancar.getSold());
-            statement.setInt(4, id);  // Set id parameter
+            statement.setInt(4, id);
             statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

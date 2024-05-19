@@ -24,21 +24,19 @@ public class SchimbValutarService {
         System.out.print("Enter the amount to exchange (suma): ");
         double suma = scanner.nextDouble();
         scanner.nextLine();
-        System.out.println("DEBUG: Suma introdusă este: " + suma);
 
         System.out.print("Enter the exchange rate ID: ");
         int cursValutarId = scanner.nextInt();
         scanner.nextLine();
-        System.out.println("DEBUG: ID-ul ratei de schimb introdus este: " + cursValutarId);
+
 
         Optional<CursValutar> cursValutarOptional = cursValutarDao.getById(cursValutarId);
         if (cursValutarOptional.isPresent()) {
             CursValutar cursValutar = cursValutarOptional.get();
             double exchangeRate = cursValutar.getRataSchimb();
-            System.out.println("DEBUG: Rata de schimb obținută este: " + exchangeRate);
+
 
             double sumaSchimbata = suma / exchangeRate;
-            System.out.println("DEBUG: Suma schimbată calculată este: " + sumaSchimbata);
 
             SchimbValutar schimbValutar = new SchimbValutar(0, suma, cursValutar.getValutaCotata());
             int id = schimbValutarDao.create(schimbValutar);
